@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "astar": "https://github.com/k0dep/astar.git#1.0.0",
+    "astar": "https://github.com/k0dep/astar.git#1.0.1",
     "astar.action-grid": "https://github.com/k0dep/astar.action-grid.git#1.1.0",
     "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git#0.8.0",
-    "com.unity.package-manager-ui": "2.0.3",
+    "com.unity.package-manager-ui": "2.0.7",
     "unirx": "https://github.com/k0dep/UniRx.git#6.2.2",
     "zenject": "https://github.com/k0dep/Zenject.git#8.0.0",
     "com.unity.modules.ai": "1.0.0",
@@ -47,8 +47,8 @@
       "revision": "1.1.0"
     },
     "astar": {
-      "hash": "f1ac7a76820a3d1dd50891267baa764dede54fb3",
-      "revision": "1.0.0"
+      "hash": "9386fb4a443a192c706a91278a3f8cdbefafc74b",
+      "revision": "1.0.1"
     },
     "zenject": {
       "hash": "f9c61c69d94498e4003e9d61161f1de5696516c3",
