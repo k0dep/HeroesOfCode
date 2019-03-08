@@ -1,16 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AStar.ActionGrid;
+using HeroesOfCode.Services;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
-namespace HeroesOfCode
+namespace HeroesOfCode.Components
 {
-    public class NavigationGridAgent : MonoBehaviour
+    public class NavigationGridAgent : MonoBehaviour, INavigationGridAgent
     {
         [Inject]
         public INavigationActionGrid Grid { get; set; }
 
+        [Inject]
+        public GridWorldPositionService GridWorldPositionService { get; set; }
+
+        
         public UnityEvent OnWalked;
 
         public float WalkSpeed;
@@ -19,10 +26,15 @@ namespace HeroesOfCode
         private int targetPathPoint;
         private float elapsed;
 
-        public void Move(IList<Vector2Int> _path)
+        private Subject<bool> _onWalkedSubject;
+
+        public Vector2Int Position => GridWorldPositionService.GetGridPosition(transform.position);
+
+        public IObservable<bool> Move(IList<Vector2Int> _path)
         {
             path = _path;
             targetPathPoint = 1;
+            return _onWalkedSubject = new Subject<bool>();;
         }
 
         private void Update()
@@ -50,6 +62,8 @@ namespace HeroesOfCode
                 {
                     path = null;
                     OnWalked.Invoke();
+                    _onWalkedSubject.OnNext(true);
+                    _onWalkedSubject.OnCompleted();
                 }
             }
 

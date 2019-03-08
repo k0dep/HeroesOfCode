@@ -8,5 +8,6 @@ namespace HeroesOfCode
         public int GraphWidth;
         public int GraphHeight;
         public float MaxNotWalkableCost;
+        public int MinimumDistance;
     }
 }

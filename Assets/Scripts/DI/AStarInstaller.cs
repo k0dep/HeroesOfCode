@@ -16,6 +16,8 @@ namespace HeroesOfCode.DI
             
             var neighborService = new GraphGridNeighborsService(gameOptions.MaxNotWalkableCost);
             Container.BindInstance<IGraphNeighborsService>(neighborService);
+
+            Container.Bind<IPathFindService>().To<AStarPathFindService>().AsSingle();
         }
     }
 }

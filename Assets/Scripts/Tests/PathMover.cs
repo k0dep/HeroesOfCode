@@ -3,61 +3,61 @@ using System.Collections.Generic;
 using AStar;
 using AStar.ActionGrid;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
-public class PathMover : MonoBehaviour
+namespace HeroesOfCode.Components
 {
-    public Vector2Int from;
-    public Vector2Int to;
-    public Cube mover;
-
-    [Inject]
-    public IGraphNeighborsService neighbor;
-
-    [Inject]
-    public INavigationActionGrid grid;
-
-    [Inject] public IGraph graph;
-
-    [ContextMenu("Move")]
-    public void Move()
+    public class PathMover : MonoBehaviour
     {
-        var pathFinder = new AStarPathFindService(neighbor);
-        
-        var path = pathFinder.Find(graph, new PathFindingOptions()
-        {
-            Start = from,
-            End = to
-        });
+        public Vector2Int from;
+        public Vector2Int to;
+        public NavigationGridAgent mover;
 
-        if (path == null)
+        [Inject] public IGraphNeighborsService neighbor;
+
+        [Inject] public INavigationActionGrid Grid { get; set; }
+
+        [Inject] public IGraph Graph { get; set; }
+
+        public void Move()
         {
-            return;
+            var pathFinder = new AStarPathFindService(neighbor);
+
+            var path = pathFinder.Find(Graph, new PathFindingOptions()
+            {
+                Start = from,
+                End = to
+            });
+
+            if (path == null)
+            {
+                return;
+            }
+
+            mover.Move(path.Path);
         }
-        
-        mover.Move(path.Path);
+
+
+        private void OnDrawGizmos()
+        {
+            var pathFinder = new AStarPathFindService(neighbor);
+
+            var path = pathFinder.Find(Graph, new PathFindingOptions()
+            {
+                Start = from,
+                End = to
+            });
+
+            if (path == null)
+            {
+                return;
+            }
+
+            foreach (var point in path.Path)
+            {
+                Gizmos.DrawCube(Grid.GetCellPoint(point), Vector3.one * 2);
+            }
+        }
     }
-  
-    
-    private void OnDrawGizmos()
-    {
-        var pathFinder = new AStarPathFindService(neighbor);
-
-        var path = pathFinder.Find(graph, new PathFindingOptions()
-        {
-            Start = from,
-            End = to
-        });
-
-        if (path == null)
-        {
-            return;
-        }
-
-        foreach (var point in path.Path)
-        {
-            Gizmos.DrawCube(grid.GetCellPoint(point), Vector3.one * 2);
-        }
-    }
-
 }

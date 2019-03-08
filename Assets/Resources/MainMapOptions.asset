@@ -15,3 +15,4 @@ MonoBehaviour:
   GraphWidth: 20
   GraphHeight: 20
   MaxNotWalkableCost: 1
+  MinimumDistance: 1

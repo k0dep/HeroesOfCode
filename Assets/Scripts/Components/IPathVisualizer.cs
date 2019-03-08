@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HeroesOfCode.Componets
+namespace HeroesOfCode.Components
 {
     public interface IPathVisualizer
     {

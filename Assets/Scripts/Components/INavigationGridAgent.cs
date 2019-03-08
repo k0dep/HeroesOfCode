@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HeroesOfCode
+namespace HeroesOfCode.Components
 {
-    public interface INavigationGridAgent
+    public interface INavigationGridAgent : INavigationGridAgentPosition
     {
-        Vector2Int Position { get; }
-        
         IObservable<bool> Move(IList<Vector2Int> _path);
     }
 }
