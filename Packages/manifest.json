@@ -2,8 +2,11 @@
   "dependencies": {
     "astar": "https://github.com/k0dep/astar.git#1.0.1",
     "astar.action-grid": "https://github.com/k0dep/astar.action-grid.git#1.1.0",
+    "autoinjector": "https://github.com/k0dep/AutoInjector.git#1.0.0",
+    "bindingrx": "https://github.com/k0dep/BindingRx.git#1.0.1",
     "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git#0.8.0",
     "com.unity.package-manager-ui": "2.0.7",
+    "type-inspector": "https://github.com/k0dep/type-inspector.git#1.0.0",
     "unirx": "https://github.com/k0dep/UniRx.git#6.2.2",
     "zenject": "https://github.com/k0dep/Zenject.git#8.0.0",
     "com.unity.modules.ai": "1.0.0",
@@ -57,6 +60,18 @@
     "unirx": {
       "hash": "c4e71212bd1d19bc26c012de8315fc10af173de6",
       "revision": "6.2.2"
+    },
+    "type-inspector": {
+      "hash": "7d2ecf119d798e0818857589c1ebf69bd05cf17b",
+      "revision": "1.0.0"
+    },
+    "bindingrx": {
+      "hash": "082f0de758822366090dac71a2594aa21f8cf114",
+      "revision": "1.0.1"
+    },
+    "autoinjector": {
+      "hash": "cb4406f9041d5cf9f68fbda689f55f54fc1d705c",
+      "revision": "1.0.0"
     }
   }
 }
