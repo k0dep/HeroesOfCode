@@ -19,7 +19,7 @@ namespace HeroesOfCode.DI
 
         private NavigationActionGrid NavigationFactory(InjectContext ctx)
         {
-            var target = GameOptions.FindObjectOfType<NavigationActionGrid>();
+            var target = SceneOptions.FindObjectOfType<NavigationActionGrid>();
             var grid = target as NavigationActionGrid;
             grid.Graph = ctx.Container.Resolve<IGraph>();
             grid.NeighborsService = ctx.Container.Resolve<IGraphNeighborsService>();

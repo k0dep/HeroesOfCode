@@ -14,7 +14,7 @@ namespace HeroesOfCode.DI
                 .AsSingle()
                 .OnInstantiated((InjectContext context, GameState state) =>
                 {
-                    state.PlayerArmy = new ArmyScriptableObjectModel();
+                    state.PlayerArmy = ScriptableObject.CreateInstance<ArmyScriptableObjectModel>();
                 });
         }
     }

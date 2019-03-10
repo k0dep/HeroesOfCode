@@ -16,8 +16,16 @@ namespace HeroesOfCode.Models
         
         [SerializeField]
         private SquadModel _goblinsSquad;
-        
 
+        [SerializeField]
+        private string _guid;
+
+        [SerializeField]
+        private string _title;
+        
+        public string Guid => _guid;
+        public string Title => _title;
+        
         public ISquadModel ArchersSquad
         {
             get => _archersSquad;
@@ -41,5 +49,15 @@ namespace HeroesOfCode.Models
             get => _goblinsSquad;
             set => _goblinsSquad = (SquadModel)value;
         }
+
+        private void OnEnable()
+        {
+            if (string.IsNullOrEmpty(_guid))
+            {
+                _guid = System.Guid.NewGuid().ToString();
+            }
+        }
+
+        public object Clone() => Instantiate(this);
     }
 }

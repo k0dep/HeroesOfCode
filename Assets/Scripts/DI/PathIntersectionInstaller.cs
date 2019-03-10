@@ -7,7 +7,7 @@ namespace HeroesOfCode.DI
     [CreateAssetMenu(menuName = "Installers/Path intersection service installer")]
     public class PathIntersectionInstaller : ScriptableObjectInstaller
     {
-        public GameOptions Options;
+        public SceneOptions Options;
         
         public override void InstallBindings()
         {

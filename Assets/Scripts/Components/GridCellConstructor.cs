@@ -11,7 +11,7 @@ namespace HeroesOfCode.Components
         public INavigationActionGrid NavGrid;
 
         [Inject]
-        public GameOptions Options;
+        public SceneOptions Options;
         
         [Inject]
         public DiContainer Container { get; set; }

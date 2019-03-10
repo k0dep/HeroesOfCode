@@ -7,6 +7,6 @@ namespace HeroesOfCode
     {
         IArmyModel PlayerArmy { get; set; }
         
-        IDictionary<string, IArmyModel> EnemiesArmy { get; set; }
+        IList<IArmyModel> EnemiesArmy { get; set; }
     }
 }

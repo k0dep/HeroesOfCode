@@ -7,7 +7,7 @@ namespace HeroesOfCode
     [ExecuteInEditMode]
     public class NavigationGridEditor : MonoBehaviour
     {
-        public GameOptions options;
+        public SceneOptions options;
 
         private bool isInit = false;
         
