@@ -11,6 +11,7 @@ namespace HeroesOfCode
         public int GraphHeight;
         public float MaxNotWalkableCost;
         public int MinimumDistance;
+        public int SceneBuildIndex;
         
         [SerializeField]
         private string _guid;

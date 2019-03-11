@@ -16,6 +16,7 @@ MonoBehaviour:
   GraphHeight: 20
   MaxNotWalkableCost: 1
   MinimumDistance: 1
+  SceneBuildIndex: 1
   _guid: 18a50274-2804-4573-80ff-0d1007321c3c
   _title: "\u041A\u0430\u0440\u0442\u0430 3"
   UIIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

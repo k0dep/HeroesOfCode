@@ -7,17 +7,43 @@ namespace HeroesOfCode.DI
     [CreateAssetMenu(menuName = "Installers/A* installer")]
     public class AStarInstaller : ScriptableObjectInstaller
     {
-        public SceneOptions sceneOptions;
-        
         public override void InstallBindings()
         {
-            var graph = new MatrixFullGraph(sceneOptions.GraphWidth, sceneOptions.GraphHeight);
-            Container.BindInstance<IGraph>(graph);
-            
-            var neighborService = new GraphGridNeighborsService(sceneOptions.MaxNotWalkableCost);
-            Container.BindInstance<IGraphNeighborsService>(neighborService);
+            Container.Bind<IGraph>().FromFactory<MatrixFullGraphFactory>().AsSingle();
+
+            Container.Bind<IGraphNeighborsService>().FromFactory<GraphGridNeighborsServiceFactory>().AsSingle();
 
             Container.Bind<IPathFindService>().To<AStarPathFindService>().AsSingle();
+        }
+
+        public class MatrixFullGraphFactory : IFactory<IGraph>
+        {
+            private readonly SceneOptions _options;
+
+            public MatrixFullGraphFactory(SceneOptions options)
+            {
+                _options = options;
+            }
+
+            public IGraph Create()
+            {
+                return new MatrixFullGraph(_options.GraphWidth, _options.GraphHeight);
+            }
+        }
+        
+        public class GraphGridNeighborsServiceFactory : IFactory<IGraphNeighborsService>
+        {
+            private readonly SceneOptions _options;
+
+            public GraphGridNeighborsServiceFactory(SceneOptions options)
+            {
+                _options = options;
+            }
+
+            public IGraphNeighborsService Create()
+            {
+                return new GraphGridNeighborsService(_options.MaxNotWalkableCost);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace HeroesOfCode.Components
 
         private void Start()
         {
-            GameState.PlayerArmy = Armies[currentArmy % Armies.Length];
+            GameState.PlayerArmy = Instantiate(Armies[currentArmy % Armies.Length]);
         }
 
         public void Next()

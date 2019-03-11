@@ -1,6 +1,7 @@
 using System.Linq;
 using HeroesOfCode.Models;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace HeroesOfCode.Components
@@ -15,6 +16,11 @@ namespace HeroesOfCode.Components
 
         private void Start()
         {
+            if (!Application.isPlaying)
+            {
+                return;
+            }
+            
             // inject army models to field enemies
             var enemyArmies = GameObject.FindObjectsOfType<EnemyArmyField>();
             var armyModels = GameState.EnemiesArmy;
@@ -43,6 +49,8 @@ namespace HeroesOfCode.Components
             
             SceneOptionsReference.Armies =
                 GameObject.FindObjectsOfType<EnemyArmyField>().Select(t => t.ArmyModelReference).ToList();
+
+            SceneOptionsReference.SceneBuildIndex = gameObject.scene.buildIndex;
         }
     }
 }
