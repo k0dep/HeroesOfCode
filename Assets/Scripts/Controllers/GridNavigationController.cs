@@ -21,6 +21,7 @@ namespace HeroesOfCode.Controllers
         private readonly INavigationGridAgentCollectorService _navigationGridAgentCollector;
 
         private bool walking = false;
+        private Vector2Int? enemyNode;
 
         public GridNavigationController(IMessageBroker messageBroker, INavigationGridAgent gridAgent,
             IPathFindService pathFindService, IGraph graph, IPathVisualizer pathVisualizer, IPathAskView pathAskView,
@@ -66,7 +67,6 @@ namespace HeroesOfCode.Controllers
 
             if (collision != null)
             {
-                Debug.Log("collision");
                 path.Path = collision.IntersectedPath;
             }
 
@@ -74,6 +74,16 @@ namespace HeroesOfCode.Controllers
             
             _pathAskView.Ask().Subscribe(result =>
             {
+                if (collision != null)
+                {
+                    enemyNode = collision.IntersectionNode;
+                }
+                else
+                {
+                    enemyNode = null;
+                }
+                
+                
                 if (!result)
                 {
                     OnWalked(false);
@@ -89,6 +99,13 @@ namespace HeroesOfCode.Controllers
         {
             walking = false;
             _pathVisualizer.Hide();
+            if (enemyNode.HasValue)
+            {
+                _messageBroker.Publish(new PlayerCollideEnemy()
+                {
+                    EnemyNode = enemyNode.Value
+                });
+            }
         }
     }
 }

@@ -16,7 +16,10 @@ MonoBehaviour:
   GraphHeight: 20
   MaxNotWalkableCost: 1
   MinimumDistance: 1
+  SceneBuildIndex: 1
+  DefaultWarFieldSceneName: War
   _guid: ea38fd12-4cd1-418a-9c23-a8d787ccf207
   _title: "\u041A\u0430\u0440\u0442\u0430 1"
   UIIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  _armies: []
+  _armies:
+  - {fileID: 11400000, guid: a6b687da0ab5bd740981e79f0122fe27, type: 2}

@@ -7,6 +7,7 @@ namespace HeroesOfCode
     {
         public IArmyModel PlayerArmy { get; set; }
         public IList<IArmyModel> EnemiesArmy { get; set; }
+        public IArmyModel CurrentEnemyArmy { get; set; }
 
         public GameState()
         {

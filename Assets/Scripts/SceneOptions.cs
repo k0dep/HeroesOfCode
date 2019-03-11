@@ -12,6 +12,7 @@ namespace HeroesOfCode
         public float MaxNotWalkableCost;
         public int MinimumDistance;
         public int SceneBuildIndex;
+        public string DefaultWarFieldSceneName;
         
         [SerializeField]
         private string _guid;

@@ -631,6 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArmyModelReference: {fileID: 11400000, guid: a6b687da0ab5bd740981e79f0122fe27, type: 2}
+  WarFieldSceneName: 
 --- !u!1 &898714636
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +911,7 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: ad2d125b9ee11f34b9b1442ba46ba398, type: 2}
   - {fileID: 11400000, guid: 1cc1906ada9e61e4f9572fefb49c22de, type: 2}
-  - {fileID: 11400000, guid: 21199e09e73e9924b85ebc9f0f7f8157, type: 2}
+  - {fileID: 11400000, guid: c461b2669e743794b93cd4dcc7726a9b, type: 2}
   - {fileID: 11400000, guid: 542d3b389110bd140bce7dccf8208cfd, type: 2}
   - {fileID: 11400000, guid: eb5ae68f9474dbd4c85898ef3c4544de, type: 2}
   - {fileID: 11400000, guid: f9960e92214f53b49b63f3b7b02d31a6, type: 2}

@@ -8,5 +8,7 @@ namespace HeroesOfCode.Components
         public ArmyScriptableObjectModel ArmyModelReference;
 
         public IArmyModel ArmyModel { get; set; }
+
+        public string WarFieldSceneName;
     }
 }

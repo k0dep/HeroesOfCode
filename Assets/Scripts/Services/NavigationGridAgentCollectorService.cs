@@ -13,5 +13,13 @@ namespace HeroesOfCode.Services
                 .FindObjectsOfType<EnemyNavigationGridAgent>()
                 .Select(component => component.Position);
         }
+
+        public GameObject GetAgentInNode(Vector2Int node)
+        {
+            return GameObject
+                .FindObjectsOfType<EnemyNavigationGridAgent>()
+                .FirstOrDefault(e => e.Position == node)
+                ?.gameObject;
+        }
     }
 }
